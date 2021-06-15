@@ -1,0 +1,21 @@
+.button-group {
+  .label {
+    margin-right: 0.5rem;
+  }
+  
+  .button {
+    border: 1px solid #aeb6c6;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    color: black;
+    background-color: #fff;
+
+    &.button-yes { 
+      border-radius: 5px 0 0 5px;
+    }
+
+    &.button-no {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
