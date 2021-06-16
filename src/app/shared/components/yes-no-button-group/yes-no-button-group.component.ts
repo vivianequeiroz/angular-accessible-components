@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-yes-no-button-group',
   templateUrl: './yes-no-button-group.component.html',
   styleUrls: ['./yes-no-button-group.component.scss']
 })
-export class YesNoButtonGroupComponent implements OnInit {
+export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
   @Input() public value: string = null;
   @Input() public label = '';
@@ -15,6 +16,19 @@ export class YesNoButtonGroupComponent implements OnInit {
   public options = YesNoButtonGroupOptions;
 
   constructor() { }
+  
+  writeValue(obj: any): void {
+    throw new Error('Method not implemented.');
+  }
+  registerOnChange(fn: any): void {
+    throw new Error('Method not implemented.');
+  }
+  registerOnTouched(fn: any): void {
+    throw new Error('Method not implemented.');
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
   }
