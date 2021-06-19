@@ -16,6 +16,7 @@ import { UniqueIdService } from '../../services/unique-id/unique-id';
 })
 export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
+  @Input() disabled = false;
   @Input() public value: string = null;
   @Input() public label = '';
   // at the template the two way data binding only occurs because the input and output properties have the same name "value", in which the suffix of the output one add the "Change" word
@@ -45,7 +46,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   }
 
   public setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    this.disabled = isDisabled;
   }
 
   ngOnInit(): void {

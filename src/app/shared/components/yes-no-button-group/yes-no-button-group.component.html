@@ -8,6 +8,7 @@
     appKeyboardManagerItem
     (focused)="activate(options.YES)"
     role="radio"
+    [attr.disabled]="disabled ? disabled : null"
     [attr.aria-checked]="value === options.YES"
     [attr.tabindex]="value === options.YES || value === null ? 0 : -1"
     type="button" 
@@ -20,6 +21,7 @@
     appKeyboardManagerItem
     (focused)="activate(options.NO)"
     role="radio"
+    [attr.disabled]="disabled ? disabled : null"
     [attr.aria-checked]="value === options.NO"
     [attr.tabindex]="value === options.NO || value === null ? 0 : -1"
     type="button" 
@@ -47,5 +49,5 @@ To avoid problems with duplicated ids, [attr.aria-label] can be used instead of 
 
 The lib uuid add dinamically ids into the components so [attr.aria-labelledby]="id" can be used
 
-
+disabled : screen readers ignore the element, with aria-disabled screen readers are going to announce the element as a disabled one
 -->
