@@ -27,7 +27,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   public onTouched = () => {}
 
   constructor() {
-    this.id = uuid.v1();
+    this.id = `yes-no-button-group-${uuid.v1()}`;
    }
 
   public writeValue(value: string): void {
