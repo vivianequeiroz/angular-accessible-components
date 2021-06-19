@@ -1,11 +1,15 @@
 <div 
+  appKeyboardManager
   role="radiogroup" 
   [attr.aria-labelledby]="id"
   class="button-group">
   <label [attr.id]="id" class="label">{{ label }}</label>
   <button 
+    appKeyboardManagerItem
+    (focused)="activate(options.YES)"
     role="radio"
     [attr.aria-checked]="value === options.YES"
+    [attr.tabindex]="value === options.YES || value === null ? 0 : -1"
     type="button" 
     class="button button-yes" 
     [class.button-pressed]="value === options.YES"
@@ -13,8 +17,11 @@
       Yes
   </button>
   <button 
+    appKeyboardManagerItem
+    (focused)="activate(options.NO)"
     role="radio"
     [attr.aria-checked]="value === options.NO"
+    [attr.tabindex]="value === options.NO || value === null ? 0 : -1"
     type="button" 
     class="button button-no" 
     [class.button-pressed]="value === options.NO"
@@ -24,11 +31,21 @@
 </div>
 
 <!-- 
+
+  ARIA attributes : good for the transition area with accessibility issues that can't be handled with native html
+  it allows us to specify attributes that modify - how - an element translates in the accessibility tree
+
+
 role="radiogroup" : Identify div as a contatiner for radios  
 [attr.aria-checked] = true/false : Indicate state of radio (checked = true / unchecked = false)
 aria-labelledby="label" : identify radio group, the id is usually located in the label element that will be announced before the radio options giving the user a context to them
+tabindex="0" : element can be focused during the navigation   
+tabindex="-1" : elemnt that should not be localized by the sequential navigation, but that can turn in the visually focusable through a programmable rule 
+
 
 To avoid problems with duplicated ids, [attr.aria-label] can be used instead of aria-labelledby="label" since it allows the nonexistence of an id to identify the label
 
 The lib uuid add dinamically ids into the components so [attr.aria-labelledby]="id" can be used
+
+
 -->
