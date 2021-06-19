@@ -1,6 +1,11 @@
-<div class="button-group">
-  <label class="label">{{ label }}</label>
+<div 
+  role="radiogroup" 
+  aria-labelledby="label"
+  class="button-group">
+  <label id="label" class="label">{{ label }}</label>
   <button 
+    role="radio"
+    [attr.aria-checked]="value === options.YES"
     type="button" 
     class="button button-yes" 
     [class.button-pressed]="value === options.YES"
@@ -8,6 +13,8 @@
       Yes
   </button>
   <button 
+    role="radio"
+    [attr.aria-checked]="value === options.NO"
     type="button" 
     class="button button-no" 
     [class.button-pressed]="value === options.NO"
@@ -15,3 +22,9 @@
       No
   </button>
 </div>
+
+<!-- 
+role="radiogroup" : Identify div as a contatiner for radios  
+[attr.aria-checked] = true/false : Indicate state of radio (checked = true / unchecked = false)
+aria-labelledby="label" : identify radio group, the id is usually located in the label element that will be announced before the radio options giving the user a context to them
+-->
