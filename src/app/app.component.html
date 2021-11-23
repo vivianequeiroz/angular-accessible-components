@@ -1,4 +1,4 @@
-<main>
+<main id="impressao">
   <h1>Form</h1>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <app-yes-no-button-group
@@ -8,4 +8,5 @@
     </app-yes-no-button-group>
     <button>Submit</button>
   </form> 
+  <button (click)="imprimirPagina()">Imprimir</button>
 </main>
